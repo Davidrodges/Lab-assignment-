@@ -28,6 +28,7 @@
         <div class="hero-text">
           <p class="eyebrow">Nairobi Based Shoe Store</p>
           <h1>New and Thrift Shoes at Fair Kenyan Prices</h1>
+          <p id="welcomeMessage" class="welcome-message" aria-live="polite"></p>
           <p>
             Discover authentic sneakers, office shoes, boots, and everyday pairs curated for quality and value.
             We stock both brand-new and carefully graded thrift options.
@@ -38,6 +39,17 @@
               <li>Showcasing affordable shoe options in Kenya.</li>
               <li>Comparing brand new and thrift pricing clearly in KES.</li>
               <li>Helping customers understand quality, style, and value before purchase.</li>
+            </ul>
+          </div>
+          <div class="hero-actions">
+            <button id="toggleTipsBtn" class="btn btn-ghost" type="button">Show Buying Tips</button>
+          </div>
+          <div id="tipsPanel" class="info-panel" hidden>
+            <h2>Quick Buying Tips</h2>
+            <ul>
+              <li>Check the outsole grip and midsole firmness before buying.</li>
+              <li>For thrift pairs, inspect inner lining and heel support.</li>
+              <li>Choose a slightly roomy fit if you plan to wear thicker socks.</li>
             </ul>
           </div>
         </div>
@@ -84,5 +96,6 @@
       <p>Email: hello@solemarket.co.ke</p>
     </div>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>

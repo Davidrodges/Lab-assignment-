@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #f4efe6;
   --surface: #ffffff;
   --surface-alt: #f7f1e8;
@@ -146,6 +146,30 @@ h1 {
   margin-top: 1.2rem;
 }
 
+.welcome-message {
+  margin: 0.2rem 0 0.8rem;
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
+.info-panel {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fbf5ec;
+}
+
+.info-panel h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.info-panel ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
 .hero-card {
   padding: 1.6rem;
   background:
@@ -262,6 +286,36 @@ h1 {
   padding: 1.35rem;
 }
 
+.form-message {
+  margin: 0 0 1rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.form-message.error {
+  color: #8a231b;
+  background: #fde8e6;
+  border: 1px solid #f4b9b2;
+}
+
+.form-message.success {
+  color: #16542b;
+  background: #e8f7ec;
+  border: 1px solid #abd8b8;
+}
+
+.field-error {
+  color: #8a231b;
+  min-height: 1.1rem;
+  font-size: 0.88rem;
+}
+
+.input-error {
+  border-color: #b6372f !important;
+  box-shadow: 0 0 0 3px rgba(182, 55, 47, 0.18);
+}
+
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -351,6 +405,22 @@ textarea:focus {
 .btn-ghost {
   background: #f6ece0;
   color: var(--accent-dark);
+}
+
+.btn-ghost.active-state {
+  background: #e7d2bd;
+}
+
+.deal-message {
+  margin: 0;
+  align-self: center;
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
+.card-highlight {
+  border-color: #d88b50;
+  box-shadow: 0 0 0 3px rgba(216, 139, 80, 0.2), var(--shadow);
 }
 
 .flip-grid {

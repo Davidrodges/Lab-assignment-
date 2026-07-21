@@ -26,16 +26,20 @@
     <h1 class="section-title">Shoe Order Form</h1>
     <p class="lead">Fill in your details and we will confirm availability and delivery costs.</p>
 
-    <form class="order-form" action="#" method="post">
+    <form id="orderForm" class="order-form" action="#" method="post" novalidate>
+      <p id="formError" class="form-message error" aria-live="assertive"></p>
+      <p id="formSuccess" class="form-message success" aria-live="polite"></p>
       <div class="form-grid">
         <div class="form-group">
           <label for="fullName">Full Name</label>
           <input id="fullName" name="fullName" type="text" placeholder="Enter your full name" required />
+          <small class="field-error" id="fullNameError"></small>
         </div>
 
         <div class="form-group">
           <label for="phone">Phone Number</label>
           <input id="phone" name="phone" type="tel" placeholder="e.g. 07XXXXXXXX" required />
+          <small class="field-error" id="phoneError"></small>
         </div>
 
         <div class="form-group">
@@ -49,6 +53,7 @@
             <option>Eldoret</option>
             <option>Other</option>
           </select>
+          <small class="field-error" id="locationError"></small>
         </div>
 
         <div class="form-group">
@@ -61,6 +66,7 @@
             <option>Chelsea Boots</option>
             <option>School Shoes</option>
           </select>
+          <small class="field-error" id="shoeTypeError"></small>
         </div>
 
         <div class="form-group">
@@ -69,11 +75,13 @@
             <label><input type="radio" name="condition" value="New" required /> New</label>
             <label><input type="radio" name="condition" value="Thrift" /> Thrift</label>
           </div>
+          <small class="field-error" id="conditionError"></small>
         </div>
 
         <div class="form-group">
           <label for="size">Shoe Size (EU)</label>
           <input id="size" name="size" type="number" min="28" max="48" required />
+          <small class="field-error" id="sizeError"></small>
         </div>
 
         <div class="form-group form-group-full">
@@ -93,5 +101,6 @@
       <p>Email: hello@solemarket.co.ke</p>
     </div>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
