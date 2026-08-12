@@ -25,8 +25,9 @@
   <main class="container section">
     <h1 class="section-title">Shoe Order Form</h1>
     <p class="lead">Fill in your details and we will confirm availability and delivery costs.</p>
+    <p id="serverStatus" class="form-message" aria-live="polite"></p>
 
-    <form id="orderForm" class="order-form" action="#" method="post" novalidate>
+    <form id="orderForm" class="order-form" action="process_order.php" method="post" novalidate>
       <p id="formError" class="form-message error" aria-live="assertive"></p>
       <p id="formSuccess" class="form-message success" aria-live="polite"></p>
       <div class="form-grid">
@@ -92,6 +93,11 @@
 
       <button type="submit" class="btn btn-primary">Submit Order</button>
     </form>
+
+    <p class="lead order-note">Orders are submitted using POST and processed on the server.</p>
+    <div class="hero-actions">
+      <a class="btn btn-ghost" href="orders.php">View Saved Orders</a>
+    </div>
   </main>
 
   <footer class="site-footer">

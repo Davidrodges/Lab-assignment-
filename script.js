@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   setupWelcomeMessage();
   setupOrderFormValidation();
+  showServerOrderStatus();
   setupHomeInteractions();
   setupShopInteractions();
 });
@@ -10,7 +11,7 @@ function setupWelcomeMessage() {
 
   if (!welcomeMessage) {
     return;
-  }
+  } 
 
   let customerName = localStorage.getItem("customerName");
 
@@ -38,6 +39,10 @@ function setupOrderFormValidation() {
   form.addEventListener("submit", (event) => {
     const missingFields = [];
 
+    if (window.location.protocol === "file:") {
+      form.action = "http://localhost:8080/process_order.php";
+    }
+
     clearFieldErrors();
     clearFormMessages();
 
@@ -54,9 +59,7 @@ function setupOrderFormValidation() {
       return;
     }
 
-    event.preventDefault();
-    showFormSuccess("Order submitted successfully. We will contact you shortly.");
-    form.reset();
+    showFormSuccess("Validation passed. Submitting order...");
   });
 }
 
@@ -152,6 +155,49 @@ function clearFormMessages() {
 
   if (formSuccess) {
     formSuccess.textContent = "";
+  }
+}
+
+function showServerOrderStatus() {
+  const statusBanner = document.getElementById("serverStatus");
+
+  if (!statusBanner) {
+    return;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const status = params.get("status");
+
+  if (!status) {
+    statusBanner.textContent = "";
+    return;
+  }
+
+  statusBanner.classList.remove("error", "success");
+
+  if (status === "success") {
+    statusBanner.classList.add("success");
+    statusBanner.textContent = "Order submitted successfully. We will contact you shortly.";
+  } else if (status === "successlocal") {
+    statusBanner.classList.add("success");
+    statusBanner.textContent = "Order submitted and saved locally because database is temporarily unavailable.";
+  } else if (status === "validation") {
+    statusBanner.classList.add("error");
+    statusBanner.textContent = "Order not submitted. Please complete all required fields.";
+  } else if (status === "dberror") {
+    statusBanner.classList.add("error");
+    statusBanner.textContent = "Order not submitted due to a database issue. Please try again later.";
+  } else if (status === "dbsetup") {
+    statusBanner.classList.add("error");
+    statusBanner.textContent = "Order not submitted because database setup failed. Confirm your MySQL user can create tables.";
+  } else if (status === "failed") {
+    statusBanner.classList.add("error");
+    statusBanner.textContent = "Order not submitted. Please try again.";
+  } else if (status === "invalid") {
+    statusBanner.classList.add("error");
+    statusBanner.textContent = "Please submit your order using the form below.";
+  } else {
+    statusBanner.textContent = "";
   }
 }
 

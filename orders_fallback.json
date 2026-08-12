@@ -1,0 +1,22 @@
+[
+    {
+        "full_name": "David Rodgers",
+        "phone": "0143289842",
+        "location": "Nairobi",
+        "shoe_type": "Casual Sneakers",
+        "shoe_condition": "New",
+        "shoe_size": 38,
+        "notes": "Red",
+        "created_at": "2026-08-12 12:31:22"
+    },
+    {
+        "full_name": "Davina Rihannah",
+        "phone": "0723474198",
+        "location": "Mombasa",
+        "shoe_type": "Casual Sneakers",
+        "shoe_condition": "New",
+        "shoe_size": 41,
+        "notes": "White",
+        "created_at": "2026-08-12 13:01:42"
+    }
+]
